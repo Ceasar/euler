@@ -1,3 +1,6 @@
+/*
+ * Find the 10001st prime.
+ */
 #include <iostream>
 #include <math.h>
 
