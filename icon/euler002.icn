@@ -1,0 +1,27 @@
+procedure Fibonacci (n)
+    a := 0;
+    b := 1;
+    every 0 to n do
+    {
+        # write ("a = ", a, "; b = ", b);
+        suspend a;
+        x := a;
+        a := b;
+        b := x + b;
+    }
+    fail;
+end
+
+procedure main ()
+   local result
+
+   result := 0;
+
+    every i := Fibonacci(1000) do
+        if i >= 4000000 then
+            break
+        else if i % 2 = 0 then
+            result +:= i
+
+    write (result)
+end
