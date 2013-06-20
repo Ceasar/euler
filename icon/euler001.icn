@@ -1,0 +1,8 @@
+procedure main ()
+    local result
+    result := 0;
+    every n := 1 to 999 do
+        if n % (3 | 5) == 0 then
+            result +:= n;
+    write (result);
+end
