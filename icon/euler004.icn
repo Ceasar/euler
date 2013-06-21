@@ -1,10 +1,18 @@
 
+procedure products (i, j)
+    local x, y
+    every x := 1 to i do
+        every y := x to j do
+            suspend x * y
+end
+
+procedure palindrome (s)
+    return s = reverse(s)
+end
 
 procedure main ()
-    local i, rv
+    local rv
     rv := 0
-    every i := string((1 to 999) * (1 to 999)) do
-        if i = reverse(i) then
-            rv <:= integer(i)
+    every rv <:= palindrome(string(products(999, 999)))
     write (rv)
 end
