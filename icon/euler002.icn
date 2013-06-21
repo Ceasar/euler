@@ -1,23 +1,23 @@
-procedure Fibonacci (n)
-    a := 0;
-    b := 1;
-    every 0 to n do
+procedure Fibonacci ()
+    local a, b
+    a := 0
+    b := 1
+    repeat
     {
         # write ("a = ", a, "; b = ", b);
         suspend a;
-        x := a;
-        a := b;
-        b := x + b;
+        a :=: b
+        b := a + b
     }
     fail;
 end
 
 procedure main ()
-   local result
+   local result, i
 
-   result := 0;
+   result := 0
 
-    every i := Fibonacci(1000) do
+    every i := Fibonacci() do
         if i >= 4000000 then
             break
         else if i % 2 = 0 then
