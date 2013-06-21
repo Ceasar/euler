@@ -2,14 +2,10 @@ procedure Fibonacci ()
     local a, b
     a := 0
     b := 1
-    repeat
-    {
-        # write ("a = ", a, "; b = ", b);
-        suspend a;
+    suspend |a do {
         a :=: b
         b := a + b
     }
-    fail;
 end
 
 procedure main ()
