@@ -1,12 +1,10 @@
 
 procedure PrimeFactors (n)
     local i
-    local j
-    j := 2
-    while n % (i := j to sqrt(n)) = 0 do {
+    i := 2
+    while n % (i := i to sqrt(n)) = 0 do {
         suspend i
-        n := n / i
-        j := i
+        n /:= i
     }
     suspend n
 end
