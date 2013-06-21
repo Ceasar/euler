@@ -1,0 +1,22 @@
+
+procedure PrimeFactors (n)
+    local i
+    local j
+    j := 2
+    while n % (i := j to sqrt(n)) = 0 do {
+        suspend i
+        n := n / i
+        j := i
+    }
+    suspend n
+end
+
+procedure main ()
+    local i
+    local target
+    # target := 8
+    # target := 13195
+    target := 600851475143
+    every i := PrimeFactors(target) do
+        write (i)
+end
