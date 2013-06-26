@@ -1,25 +1,23 @@
+from itertools import izip as zip
 
-import operator
 
-def read():
-    f = open("euler18.txt")
-    cleanlines = [map(int, line.split()) for line in f]
-    f.close()
-    return cleanlines
+def read_nums():
+    """Parse all the numbers on each line of a file."""
+    with open("euler67.txt") as f:
+        for line in f:
+            yield [int(i) for i in line.split()]
 
-def best(line):
-    return map(lambda val: max(*val), zip(line, line[1:]))
 
-def merge(a, b):
-    return map(sum, zip(a, b))
+def select(line):
+    for i, j in zip(line, line[1:]):
+        yield max(i, j)
 
-def solve():
-    lines = read()
-    abc = None
+
+def solve(lines):
+    rv = [0] * 101
     for line in reversed(lines):
-        if abc:
-            line = merge(abc, line)
-        if len(line) > 1:
-            abc = best(line)
-    return line
-        
+        rv = [i + j for i, j in zip(select(rv), line)]
+    return rv
+
+if __name__ == "__main__":
+    print solve(list(read_nums()))[0]
